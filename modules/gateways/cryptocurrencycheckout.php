@@ -8,7 +8,7 @@
  * 
  * Author: CryptocurrencyCheckout
  * Author URI: https://cryptocurrencycheckout.com/
- * Version: 1.3.7
+ * Version: 1.3.8
  * 
  * @see https://cryptocurrencycheckout.com/guides/whmcs
  * 
@@ -751,6 +751,14 @@ function cryptocurrencycheckout_config()
             'Default' => '',
             'Description' => 'Must Match CryptocurrencyCheckout Dashboard',
         ),
+        
+        'papryAddress' => array(
+            'FriendlyName' => 'PAPRY Address',
+            'Type' => 'text',
+            'Size' => '25',
+            'Default' => '',
+            'Description' => 'Must Match CryptocurrencyCheckout Dashboard',
+        ),
 
         'APIToken' => array(
             'FriendlyName' => 'API Token',
@@ -860,6 +868,7 @@ function cryptocurrencycheckout_link($params)
     $bdxAddress = $params['bdxAddress'];
     $kasAddress = $params['kasAddress'];
     $mariaAddress = $params['mariaAddress'];
+    $papryAddress = $params['papryAddress'];
 
 
     // Invoice Parameters
@@ -959,6 +968,7 @@ function cryptocurrencycheckout_link($params)
     $postfields['CC_BDX_ADDRESS'] = $bdxAddress;
     $postfields['CC_KAS_ADDRESS'] = $kasAddress;
     $postfields['CC_MARIA_ADDRESS'] = $mariaAddress;
+    $postfields['CC_PAPRY_ADDRESS'] = $papryAddress;
 
     $htmlOutput = '<form method="POST" action="' . $url . '">';
     foreach ($postfields as $k => $v) {
